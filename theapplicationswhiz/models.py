@@ -26,9 +26,15 @@ class Application(models.Model):
     def get_absolute_url(self):
         return reverse('application-detail', kwargs={'pk': self.id})
 
-    # def __str__(self):
-    #     return self.title
+ 
 
-    # def get_absolute_url(self):
-    #     return reverse('applications/', kwargs={'pk': self.id})
+
+class Note(models.Model):
+    application = models.ForeignKey(Application, related_name="notes", on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    body = models.TextField()
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return '%s - %s' % (self.application.title, self.name)
 
