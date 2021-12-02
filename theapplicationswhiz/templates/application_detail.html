@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
-
 {% load static %}
 
-{% block main %}
 
+{% block title %} {{ application.title }} {% endblock %}
+{% block main %}
 
 <h1>{{ application.title }} </h1>
 <hr/>
@@ -26,7 +26,7 @@
 </ul>
 
 <br/><br/>
-<a href="{% url 'applications' %}">Back</a>
+<a href="{% url 'applications' %}"class="waves-effect waves-light btn">Back</a>
 
 
 
