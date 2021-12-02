@@ -5,12 +5,12 @@
 {% block title %} {{ application.title }} {% endblock %}
 {% block main %}
 
+
 <h1>{{ application.title }} </h1>
 <hr/>
 <ul>
     <li>
-
-        {{ application.author.first_name }} {{ application.author.last_name }} - {{ application.author.email }}  </br>
+        {{ application.owner.first_name }} {{ application.owner.last_name }} - {{ application.owner.email }}  </br>
         {{ application.date_added }} </br>
         {{ application.job_post }} </br>
         {{ application.company_name }} </br>
