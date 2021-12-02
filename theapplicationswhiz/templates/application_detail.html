@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main %}
+
+
+<h1>{{ application.title }} </h1>
+<hr/>
+<ul>
+    <li>
+
+        {{ application.author.first_name }} {{ application.author.last_name }} - {{ application.author.email }}  </br>
+        {{ application.date_added }} </br>
+        {{ application.job_post }} </br>
+        {{ application.company_name }} </br>
+        {{ application.company_website }} </br>
+        {{ application.location }} </br>
+        {{ application.salary }} </br>
+        {{ application.company_size }} </br>
+        {{ application.submission_status }} </br>
+        {{ application.remote }} </br>
+        {{ application.next_steps }} </br>
+        {{ application.notes }} </br>
+    </li>
+</ul>
+
+
+
+
+{% endblock %}

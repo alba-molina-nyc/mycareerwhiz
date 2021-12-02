@@ -5,28 +5,9 @@
 {% block main %}
 
 
-<h1>Applications</h1>
-<!-- #object list is all the apps -->
-{% for application in object_list %}
-<ul>
-<li> {{ application.title }} </br>
-{{ application.author.first_name }} {{ application.author.last_name }} - {{ application.author.email }}  </br>
-{{ application.date_added }} </br>
-{{ application.job_post }} </br>
-{{ application.company_name }} </br>
-{{ application.company_website }} </br>
-{{ application.location }} </br>
-{{ application.salary }} </br>
-{{ application.company_size }} </br>
-{{ application.submission_status }} </br>
-{{ application.remote }} </br>
-{{ application.next_steps }} </br>
-{{ application.notes }} </br>
-</li>
-<hr/>
+<h1>Home</h1>
 
 
-{% endfor %}
 
 
 </ul>

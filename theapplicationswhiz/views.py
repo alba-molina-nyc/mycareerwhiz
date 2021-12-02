@@ -11,3 +11,11 @@ from .models import Application
 class HomeView(ListView):
     model = Application
     template_name = 'home.html'
+
+class ApplicationsView(ListView):
+    model = Application
+    template_name = 'applications.html'
+
+class ApplicationDetailView(DetailView):
+    model = Application
+    template_name = 'application_detail.html'

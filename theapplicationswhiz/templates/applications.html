@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main %}
+
+
+<h1>Applications</h1>
+<!-- #object list is all the apps -->
+{% for application in object_list %}
+<ul>
+    <li>
+        <a href="{% url 'application-detail' application.pk %}"> {{ application.title }}</a> </br>
+        {{ application.author.first_name }} {{ application.author.last_name }} - {{ application.author.email }}  </br>
+     
+    </li>
+<hr/>
+
+
+{% endfor %}
+
+
+</ul>
+
+{% endblock %}
