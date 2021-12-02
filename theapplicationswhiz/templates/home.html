@@ -9,19 +9,21 @@
 <!-- #object list is all the apps -->
 {% for application in object_list %}
 <ul>
-<li> {{ application.title }} </li>
-<li> {{ application.author }} </li>
-<li> {{ application.date_added }} </li>
-<li> {{ application.job_post }} </li>
-<li> {{ application.company_name }} </li>
-<li> {{ application.company_website }} </li>
-<li> {{ application.location }} </li>
-<li> {{ application.salary }} </li>
-<li> {{ application.company_size }} </li>
-<li> {{ application.submission_status }} </li>
-<li> {{ application.remote }} </li>
-<li> {{ application.next_steps }} </li>
-<li> {{ application.notes }} </li>
+<li> {{ application.title }} </br>
+{{ application.author.first_name }} {{ application.author.last_name }} - {{ application.author.email }}  </br>
+{{ application.date_added }} </br>
+{{ application.job_post }} </br>
+{{ application.company_name }} </br>
+{{ application.company_website }} </br>
+{{ application.location }} </br>
+{{ application.salary }} </br>
+{{ application.company_size }} </br>
+{{ application.submission_status }} </br>
+{{ application.remote }} </br>
+{{ application.next_steps }} </br>
+{{ application.notes }} </br>
+</li>
+<hr/>
 
 
 {% endfor %}

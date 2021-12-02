@@ -1,8 +1,7 @@
-from typing import List
 from django.shortcuts import render
 #allows to list a queryset and then bring them back to website, queryset brings back one record
 from django.views.generic import ListView, DetailView
-from theapplicationswhiz.models import Application
+from .models import Application
 
 # Create your views here
 
