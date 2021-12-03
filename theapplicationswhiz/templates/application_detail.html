@@ -46,45 +46,7 @@ No notes yet... <a href="{% url 'add_note' application.pk %}">add one</a>
 <br/><br/><br/><br/>
 
 
-<h3>Interviews...</h3>
 
-{% if not application.interviews.all %}
-
-No interviews yet... <a href="{% url 'add_interview' application.pk %}">add one</a>
-
-{%  else %}
-<br/><br/>
-<a href="{% url 'add_interview' application.pk %}">Add Interview</a>
-{% for note in application.interviews.all %}
-<h6> <b>{{ interview.name }} - {{ interview.date_added }}</b></h6>
-
-{{ note.body }}
-
-{% endfor %}
-{% endif %}
-<br/><br/><br/><br/>
-
-
-
-
- 
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Interview</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for interviewing in application.interviewing_set.all %}
-                <tr>
-                    <td>{{ interviewing.date }}</td>
-                    <td>{{ interviewing.get_interview_display }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
-</div>
 <br/><br/><br/><br/>
 
 <a href="{% url 'applications' %}"class="waves-effect waves-light btn">Back</a>

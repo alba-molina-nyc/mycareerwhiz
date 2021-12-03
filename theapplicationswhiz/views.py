@@ -3,10 +3,13 @@ from django.urls.base import reverse_lazy
 # allows to list a queryset and then bring them back to website, queryset brings back one record, createview allows you to create
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Application, Note, Interviewing, INTERVIEWS
+from django.views.generic.edit import CreateView
+# , UpdateView, DeleteView
+from .models import Application, Note
+#  Interview
 from django.contrib.auth.models import User
-from .forms import NoteForm, InterviewingForm
+from .forms import NoteForm
+# InterviewForm
 from .models import Note
 
 # Create your views here
@@ -45,15 +48,15 @@ class AddNoteView(CreateView):
 
 
 
-class AddInterviewView(CreateView):
-    model = Interviewing
-    form_class = InterviewingForm
-    template_name = 'add_interview.html'
-    success_url = reverse_lazy('home')
-#adding kwargs and primary key
-    def form_valid(self, form):
-        form.instance.application_id = self.kwargs['pk']
-        return super().form_valid(form)
+# class AddInterviewView(CreateView):
+#     model = Interview
+#     form_class = InterviewForm
+#     template_name = 'add_interview.html'
+#     success_url = reverse_lazy('home')
+# #adding kwargs and primary key
+#     def form_valid(self, form):
+#         form.instance.application_id = self.kwargs['pk']
+#         return super().form_valid(form)
 
 # def application_detail(request, pk):
 #     application = Application.objects.get(id=pk)

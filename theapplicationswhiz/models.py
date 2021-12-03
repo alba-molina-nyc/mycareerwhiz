@@ -26,8 +26,6 @@ class Application(models.Model):
     def get_absolute_url(self):
         return reverse('application-detail', kwargs={'pk': self.id})
 
- 
-
 
 class Note(models.Model):
     application = models.ForeignKey(Application, related_name="notes", on_delete=models.CASCADE)
@@ -38,25 +36,15 @@ class Note(models.Model):
     def __str__(self):
         return '%s - %s' % (self.application.body, self.name)
 
+# class Interview(models.Model):
+#     date = models.DateField('Interviewing Date')
+#     body = models.TextField()
+#     location = models.TextField()
+#     application = models.ForeignKey(Application,  on_delete=models.CASCADE)
+#     date_added = models.DateTimeField(auto_now_add=True)
 
-INTERVIEWS = (
-    ('V', 'Video-Conferencing'),
-    ('H', 'Hybrid'),
-    ('O', 'In-Office'),
-)
+#     def __str__(self):
+#         return '%s - %s' % (self.application.body, self.location)
 
-
-class Interviewing(models.Model):
-    date = models.DateField('Feeding Date')
-    interview = models.CharField(
-        max_length=1,
-        choices=INTERVIEWS,
-        default=INTERVIEWS[0][0],
-    )
-    Application = models.ForeignKey(Application, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f'{self.get_interview_display()} on {self.date}'
-
-    class Meta:
-        ordering = ('-date',)
+#     class Meta:
+#         ordering = ('-date',)

@@ -4,15 +4,16 @@
 
 {% block title %} {{ application.title }} {% endblock %}
 {% block main %}
-<div class="col s6">
-    <form method="POST application.id" novalidate>
+<br/><br/><br/>
+<h1>Add Interview</h1>
+<!-- <div class="form-group">
+    <form method="POST">
         {% csrf_token %}
-    
-        {{ interviewing_form.as_p }}
-        <button class="waves-effect waves-light btn" type="submit"> add feeding </button>
-    </form>
+        {{ form.as_p }}
+        <button class="waves-effect waves-light btn"> Add Interview </button>
+</div> -->
 
-    {% endblock %}
+{% endblock %}
 
 
     <!-- 
