@@ -11,7 +11,7 @@
 {% for application in object_list %}
 <ul>
     <li>
-        <a href="{% url 'application-detail' application.pk %}"> {{ application.title }}</a> Update Note <a href="{% url 'application_update' application.pk %}">  (here) </a></br>
+        <a href="{% url 'application-detail' application.pk %}"> {{ application.title }}</a> Update Application <a href="{% url 'application_update' application.pk %}">  (here) </a></br>
         {{ application.owner.first_name }} {{ application.owner.last_name }} - {{ application.owner.email }} -  </br>
      
     </li>

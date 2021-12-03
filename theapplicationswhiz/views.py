@@ -4,7 +4,7 @@ from django.urls.base import reverse_lazy
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView
-from .models import Application, Note
+from .models import Application, Category, Note, Category
 #  Interview
 from django.contrib.auth.models import User
 from .forms import NoteForm
@@ -50,5 +50,10 @@ class AddNoteView(CreateView):
     def form_valid(self, form):
         form.instance.application_id = self.kwargs['pk']
         return super().form_valid(form)
+
+class AddCategoryView(CreateView):
+    model = Category
+    template_name = 'add_category.html'
+    fields = '__all__'
 
 
