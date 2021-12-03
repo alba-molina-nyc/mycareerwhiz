@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %} Delete Application Post {% endblock %}
+{% block main %}
+
+
+<h1>Delete Application</h1>
+<div>
+    <h3> Delete.... {{ application.title}} </h3>
+    <br/>
+<form method="POST" >
+    {% csrf_token %}
+
+    <strong>
+        are you sure????
+    </strong>
+<br/>
+    <button class="waves-effect waves-light btn"> Delete Application! </button>
+</form>
+</div>
+{% endblock %}

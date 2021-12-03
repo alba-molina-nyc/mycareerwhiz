@@ -18,6 +18,11 @@
     <h1>   <b>{{ application.Category}}</b> </h1>
         
         <br/>Update Application <a href="{% url 'application_update' application.pk %}">  (here) </a></br>
+
+
+        <br/>Delete Application <a href="{% url 'application_delete' application.pk %}">  (here) </a></br>
+
+        
         {{ application.owner.first_name }} {{ application.owner.last_name }} - {{ application.owner.email }} -  </br>
      
     </li>

@@ -1,13 +1,11 @@
 from django.shortcuts import render, redirect
 from django.urls.base import reverse_lazy
 # allows to list a queryset and then bring them back to website, queryset brings back one record, createview allows you to create
-from django.views.generic import ListView
-from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, UpdateView
-from .models import Application, Category, Note, Category
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from .models import Application, Category, Note
 #  Interview
 from django.contrib.auth.models import User
-from .forms import NoteForm
+from .forms import ApplicationForm, NoteForm, Application, Category
 # InterviewForm
 
 
@@ -32,12 +30,12 @@ class ApplicationDetailView(DetailView):
 
 class AddApplicationView(CreateView):
     model = Application
-    fields = '__all__'
+    form_class = ApplicationForm
     template_name = 'add_application.html'
 
 class UpdateApplicationView(UpdateView): 
     model = Application
-    fields = '__all__'
+    form_class = ApplicationForm
     template_name = 'update_application.html'
     
 
@@ -56,4 +54,7 @@ class AddCategoryView(CreateView):
     template_name = 'add_category.html'
     fields = '__all__'
 
-
+class DeleteApplicationView(DeleteView): 
+    model = Application
+    template_name = 'delete_application.html'
+    success_url = '/applications/'
