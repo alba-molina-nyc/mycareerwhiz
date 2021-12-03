@@ -12,7 +12,7 @@
 <ul>
     <li>
         <a href="{% url 'application-detail' application.pk %}"> {{ application.title }}</a> </br>
-        {{ application.owner.first_name }} {{ application.owner.last_name }} - {{ application.owner.email }}  </br>
+        {{ application.owner.first_name }} {{ application.owner.last_name }} - {{ application.owner.email }} -  <a href="{% url 'application_update' application.pk %}">  update </br>
      
     </li>
 <hr/>
