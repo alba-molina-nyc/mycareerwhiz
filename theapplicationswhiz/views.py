@@ -52,6 +52,13 @@ class AddNoteView(CreateView):
         return super().form_valid(form)
 
 
+# something to do with kwargs and exact path so google that and should be able to figure out
+# class UpdateNoteView(UpdateView): 
+#     model = Note
+#     fields = ['body']
+#     template_name = 'update_note.html'
+
+
 
 # class AddInterviewView(CreateView):
 #     model = Interview

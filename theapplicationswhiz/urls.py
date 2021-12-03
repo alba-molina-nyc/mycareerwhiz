@@ -1,7 +1,8 @@
 from django.urls import path
 from . import views
 from .views import HomeView, ApplicationsView, ApplicationDetailView, AddApplicationView, AddNoteView, UpdateApplicationView
-# AddInterviewView
+
+# AddInterviewView/UpdateNoteView
 
 
 urlpatterns = [
@@ -12,6 +13,8 @@ urlpatterns = [
       path('add_application/', AddApplicationView.as_view(), name='add_application'),
       path('application/<int:pk>/update/', UpdateApplicationView.as_view(), name='application_update'),
       path('application/<int:pk>/add_note/', AddNoteView.as_view(), name='add_note'),
+      # path('application/<int:pk>/update_note/', UpdateNoteView.as_view(), name='note_update'),
+      
       # path('application/<int:pk>/add_interview/', AddInterviewView.as_view(), name='add_interview'),
 
      ]

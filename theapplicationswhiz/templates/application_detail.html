@@ -33,11 +33,13 @@
 
 No notes yet... <a href="{% url 'add_note' application.pk %}">add one</a>
 
+
 {%  else %}
 <br/><br/>
 <a href="{% url 'add_note' application.pk %}">Add Note</a>
 {% for note in application.notes.all %}
-<h6> <b>{{ note.name }} - {{ note.date_added }}</b></h6>
+<h6> <b>{{ note.name }} - {{ note.date_added }}</b></h6>Edit
+
 
 {{ note.body }}
 
@@ -46,6 +48,14 @@ No notes yet... <a href="{% url 'add_note' application.pk %}">add one</a>
 <br/><br/><br/><br/>
 
 
+
+<ul>
+    <li>
+        <a href="{% url 'application-detail' application.pk %}"> {{ application.title }}</a> </br>
+        {{ application.owner.first_name }} {{ application.owner.last_name }} - {{ application.owner.email }} -  <a href="{% url 'application_update' application.pk %}">  update </br>
+     
+    </li>
+</ul>
 
 <br/><br/><br/><br/>
 
