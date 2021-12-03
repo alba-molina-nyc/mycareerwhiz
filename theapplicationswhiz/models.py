@@ -26,7 +26,8 @@ class Application(models.Model):
     submission_status = models.CharField(max_length=255)
     remote = models.CharField(max_length=255)
     next_steps = models.DateField(auto_now_add=True)
-    category = models.CharField(max_length=255, default='uncategorized')
+    category = models.CharField(max_length=255, default='')
+  
 
     def __str__(self):
         return self.title + ' | ' + str(self.user)
