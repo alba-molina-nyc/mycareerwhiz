@@ -9,13 +9,6 @@ from .forms import ApplicationForm, NoteForm, Application, Category
 # InterviewForm
 
 
-# Create your views here
-
-# def home(request):
-#     # send sample cat objects here
-#     return render(request, 'home.html')
-
-# this is an example of a class view 
 class HomeView(ListView):
     model = Application
     template_name = 'home.html'
@@ -53,6 +46,7 @@ class AddCategoryView(CreateView):
     model = Category
     template_name = 'add_category.html'
     fields = '__all__'
+    success_url = '/applications/'
 
 class DeleteApplicationView(DeleteView): 
     model = Application
