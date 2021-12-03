@@ -1,8 +1,9 @@
 from django.contrib import admin
-from .models import Application, Note, Category
+from .models import Application, Note, Category, Contact
 
 admin.site.register(Application)
 admin.site.register(Note)
 admin.site.register(Category)
+admin.site.register(Contact)
 
 # Register your models here.

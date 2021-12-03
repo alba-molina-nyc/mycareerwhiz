@@ -34,14 +34,14 @@
 
 {% if not application.notes.all %}
 
-No notes yet... <a href="{% url 'add_note' application.pk %}">add one</a>
+No notes yet... <a href="{% url 'add_note' application.pk %}">Add a Note</a>
 
 
 {%  else %}
 <br/><br/>
 <a href="{% url 'add_note' application.pk %}">Add Note</a>
 {% for note in application.notes.all %}
-<h6> <b>{{ note.name }} - {{ note.date_added }}</b></h6>Edit
+<h6> <b>{{ note.name }} - {{ note.date_added }}</b></h6>
 
 
 {{ note.body }}
@@ -49,6 +49,8 @@ No notes yet... <a href="{% url 'add_note' application.pk %}">add one</a>
 {% endfor %}
 {% endif %}
 <br/><br/><br/><br/>
+<br/><br/>
+<hr/>
 
 
 

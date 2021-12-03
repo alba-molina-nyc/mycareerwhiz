@@ -2,16 +2,19 @@ from django.shortcuts import render, redirect
 from django.urls.base import reverse_lazy
 # allows to list a queryset and then bring them back to website, queryset brings back one record, createview allows you to create
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Application, Category, Note
+from .models import Application, Category, Note, Contact
 #  Interview
 from django.contrib.auth.models import User
-from .forms import ApplicationForm, NoteForm, Application, Category
+from .forms import ApplicationForm, NoteForm, Application, Category, ContactForm
 # InterviewForm
 
+######## HomeView #########
 
 class HomeView(ListView):
     model = Application
     template_name = 'home.html'
+
+######## Applications Crud #########
 
 class ApplicationsView(ListView):
     model = Application
@@ -30,7 +33,14 @@ class UpdateApplicationView(UpdateView):
     model = Application
     form_class = ApplicationForm
     template_name = 'update_application.html'
-    
+
+class DeleteApplicationView(DeleteView): 
+    model = Application
+    template_name = 'delete_application.html'
+    success_url = '/applications/'
+
+
+######## Note #########  
 
 class AddNoteView(CreateView):
     model = Note
@@ -42,13 +52,27 @@ class AddNoteView(CreateView):
         form.instance.application_id = self.kwargs['pk']
         return super().form_valid(form)
 
+
+
+######## Category #########
 class AddCategoryView(CreateView):
     model = Category
     template_name = 'add_category.html'
     fields = '__all__'
     success_url = '/applications/'
 
-class DeleteApplicationView(DeleteView): 
-    model = Application
-    template_name = 'delete_application.html'
-    success_url = '/applications/'
+
+
+######## Note #########  
+
+class ContactsView(ListView):
+    model = Contact
+    template_name = 'contacts.html'
+
+class AddContactView(CreateView):
+    model = Contact
+    form_class = ContactForm
+    template_name = 'add_contact.html'
+    success_url = '/contacts/'
+
+

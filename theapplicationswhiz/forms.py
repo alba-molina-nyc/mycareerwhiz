@@ -1,5 +1,5 @@
 from django import forms
-from .models import Application, Note, Category
+from .models import Application, Note, Category, Contact
 # Interview
 
 #hardcodes the choices but not good bc cant make changes easily 
@@ -31,6 +31,19 @@ class ApplicationForm(forms.ModelForm):
         'category': forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
     }
 
+
+class ContactForm(forms.ModelForm): 
+    class Meta: 
+        model = Contact
+        fields = ( 'name', 'title', 'email', 'user' )
+        
+        widgets = { 
+         'name': forms.TextInput(attrs={'class': 'form-control'}),
+         'title': forms.TextInput(attrs={'class': 'form-control'}),
+         'email': forms.EmailInput(attrs={'class': 'form-control'}),
+         'user': forms.Select(attrs={'class': 'form-control'}),
+     }
+
 class NoteForm(forms.ModelForm):
     class Meta: 
         model = Note
@@ -41,4 +54,7 @@ class NoteForm(forms.ModelForm):
         'name': forms.TextInput(attrs={'class': 'form-control'}),
         'body': forms.Textarea(attrs={'class': 'form-control'}),
     }
+
+
+
 
