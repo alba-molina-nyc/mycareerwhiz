@@ -36,5 +36,6 @@ class Note(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return '%s - %s' % (self.application.title, self.name)
+        return '%s - %s' % (self.application.body, self.name)
+
 

@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
+from django.urls.base import reverse_lazy
 # allows to list a queryset and then bring them back to website, queryset brings back one record, createview allows you to create
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Application
+from .models import Application, Note
 from django.contrib.auth.models import User
+from .forms import NoteForm
+from .models import Note
 
 # Create your views here
 
@@ -30,5 +33,14 @@ class AddApplicationView(CreateView):
     fields = '__all__'
     template_name = 'add_application.html'
 
+class AddNoteView(CreateView):
+    model = Note
+    form_class = NoteForm
+    template_name = 'add_note.html'
+    success_url = reverse_lazy('home')
+#adding kwargs and primary key
+    def form_valid(self, form):
+        form.instance.application_id = self.kwargs['pk']
+        return super().form_valid(form)
 
 
