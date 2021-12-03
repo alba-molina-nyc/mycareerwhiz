@@ -6,6 +6,12 @@ from django.conf import settings
 
 # Create your models here.
 
+class Category(models.Model): 
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name 
+
 class Application(models.Model):
     title = models.CharField(max_length=255)
     #comes from foreign key from user-aka the super user we created just now but eventually expands to all users
@@ -20,6 +26,7 @@ class Application(models.Model):
     submission_status = models.CharField(max_length=255)
     remote = models.CharField(max_length=255)
     next_steps = models.DateField(auto_now_add=True)
+    category = models.CharField(max_length=255, default='uncategorized')
 
     def __str__(self):
         return self.title + ' | ' + str(self.user)
