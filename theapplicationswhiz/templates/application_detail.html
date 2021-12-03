@@ -26,6 +26,27 @@
 </ul>
 
 <br/><br/>
+
+<h3>Notes...</h3>
+
+{% if not application.notes.all %}
+
+No notes yet... <a href="">add one</a>
+
+{%  else %}
+<br/><br/>
+<a href="">Add Note</a>
+{% for note in application.notes.all %}
+<h6> <b>{{ note.name }} - {{ note.date_added }}</b></h6>
+
+{{ note.body }}
+
+{% endfor %}
+{% endif %}
+<br/><br/><br/><br/>
+
+
+
 <a href="{% url 'applications' %}"class="waves-effect waves-light btn">Back</a>
 
 
