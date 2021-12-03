@@ -20,6 +20,7 @@ class Application(models.Model):
     submission_status = models.CharField(max_length=255)
     remote = models.CharField(max_length=255)
     next_steps = models.DateField(auto_now_add=True)
+
     def __str__(self):
         return self.title + ' | ' + str(self.user)
 
@@ -36,15 +37,3 @@ class Note(models.Model):
     def __str__(self):
         return '%s - %s' % (self.application.body, self.name)
 
-# class Interview(models.Model):
-#     date = models.DateField('Interviewing Date')
-#     body = models.TextField()
-#     location = models.TextField()
-#     application = models.ForeignKey(Application,  on_delete=models.CASCADE)
-#     date_added = models.DateTimeField(auto_now_add=True)
-
-#     def __str__(self):
-#         return '%s - %s' % (self.application.body, self.location)
-
-#     class Meta:
-#         ordering = ('-date',)
