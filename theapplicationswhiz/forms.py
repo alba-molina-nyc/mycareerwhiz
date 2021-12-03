@@ -1,5 +1,11 @@
 from django import forms
-from .models import Application, Note
+from .models import Application, Note, Interviewing
+
+
+class InterviewingForm(forms.ModelForm):
+    class Meta:
+        model = Interviewing
+        fields = ('date', 'interview')
 
 class NoteForm(forms.ModelForm):
     class Meta: 

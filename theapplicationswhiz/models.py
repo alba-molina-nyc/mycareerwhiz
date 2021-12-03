@@ -39,3 +39,24 @@ class Note(models.Model):
         return '%s - %s' % (self.application.body, self.name)
 
 
+INTERVIEWS = (
+    ('V', 'Video-Conferencing'),
+    ('H', 'Hybrid'),
+    ('O', 'In-Office'),
+)
+
+
+class Interviewing(models.Model):
+    date = models.DateField('Feeding Date')
+    interview = models.CharField(
+        max_length=1,
+        choices=INTERVIEWS,
+        default=INTERVIEWS[0][0],
+    )
+    Application = models.ForeignKey(Application, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.get_interview_display()} on {self.date}'
+
+    class Meta:
+        ordering = ('-date',)
