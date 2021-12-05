@@ -27,7 +27,7 @@
     <div class="col s12 m12">
       <div class="card black darken-1">
         <div class="card-content white-text">
-          <span class="card-title">{{ application.company_name }}<td> <a href="{% url 'application_delete' application.pk %}">Delete</td>
+          <span class="card-title"> <a href="{{ application.company_name }}" target="_blank"> Company Website</a><td> <a href="{% url 'application_delete' application.pk %}"> Delete</td>
             <td> <a href="{% url 'application_update' application.pk %}">Update</a></td></span>
           <table>
             <tr>

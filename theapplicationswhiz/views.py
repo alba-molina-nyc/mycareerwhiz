@@ -58,12 +58,15 @@ class AddNoteView(CreateView):
 
 
 ######## Category #########
+class CategoriesView(ListView):
+    model = Category
+    template_name = 'categories.html'
+
 class AddCategoryView(CreateView):
     model = Category
     template_name = 'add_category.html'
     fields = '__all__'
     success_url = '/applications/'
-
 
 
 ######## Note #########  
