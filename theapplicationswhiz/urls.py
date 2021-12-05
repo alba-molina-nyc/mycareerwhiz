@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 from .views import HomeView, ApplicationsView, ApplicationDetailView, AddApplicationView, AddNoteView, UpdateApplicationView, AddCategoryView, DeleteApplicationView, AddContactView, ContactsView
 
+
 # AddInterviewView/UpdateNoteView
 
 
@@ -17,6 +18,7 @@ urlpatterns = [
       path('add_category/', AddCategoryView.as_view(), name='add_category'),
       path('add_contact/', AddContactView.as_view(), name='add_contact'),
       path('contacts/', ContactsView.as_view(), name='contacts'),
+    
 
     
 

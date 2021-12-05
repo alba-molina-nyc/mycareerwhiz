@@ -6,13 +6,16 @@ from .models import Application, Category, Note, Contact
 #  Interview
 from django.contrib.auth.models import User
 from .forms import ApplicationForm, NoteForm, Application, Category, ContactForm
+
 # InterviewForm
 
 ######## HomeView #########
 
-class HomeView(ListView):
+class HomeView(ListView,):
     model = Application
     template_name = 'home.html'
+
+
 
 ######## Applications Crud #########
 
