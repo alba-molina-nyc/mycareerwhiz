@@ -4,31 +4,59 @@
 
 {% block title %} {{ application.title }} {% endblock %}
 {% block main %}
+<style>
+   table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: center;
+    padding: 10px;
 
-
-<h1>{{ application.title }} </h1>
+  }
+</style>
+<br/>
+<a href="{% url 'applications' %}"class="waves-effect waves-light btn">Back</a>
+<h1>{{ application.title }} </h1> 
 <hr/>
-<ul>
-    <li>
-        {{ application.owner.first_name }} {{ application.owner.last_name }} - {{ application.owner.email }}  </br>
-        {{ application.date_added }} </br>
-        {{ application.job_post }} </br>
-        {{ application.company_name }} </br>
-        {{ application.company_website }} </br>
-        {{ application.location }} </br>
-        {{ application.salary }} </br>
-        {{ application.company_size }} </br>
-        {{ application.submission_status }} </br>
-        {{ application.remote }} </br>
-        {{ application.next_steps }} </br>
-        {{ application.notes }} </br>
-        <b>
-            {{ application.category }} </br>
-        </b>
-    </li>
-</ul>
 
-<br/><br/>
+
+<div class="row">
+    <div class="col s12 m12">
+      <div class="card black darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">{{ application.company_name }}<td> <a href="{% url 'application_delete' application.pk %}">Delete</td>
+            <td> <a href="{% url 'application_update' application.pk %}">Update</a></td></span>
+          <table>
+            <tr>
+              <td>location: {{ application.location }}</td>
+              <td>salary: {{ application.salary }} USD</td>
+              <td>  company size: {{ application.company_size }}</td>
+            </tr>
+          </table>
+          <br/>  <br/>    <br/>
+        <h4> Application Stage: {{ application.category }}</h4>
+        <br/>  <br/>    <br/>
+        <small>
+          <td>remote? {{ application.remote }}</td>
+          <br/>
+          {{ application.date_added }}
+        </small>
+
+        
+        </div>
+        <div class="card-action">
+          <a href=" {{ application.job_post }}" target="_blank">Job Post URL</a>
+          <a href=" {{ application.company_website }}"  target="_blank"> {{ application.company_name}} website </a>
+          <a href="{% url 'add_note' application.pk %}">Add a Note</a>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
 <hr/>
 <h3>Notes... for {{ application.title }} </h3>
 
@@ -50,11 +78,10 @@ No notes yet... <a href="{% url 'add_note' application.pk %}">Add a Note</a>
 {% endif %}
 <br/><br/><br/><br/>
 
-<hr/>
 
 
 
-<a href="{% url 'applications' %}"class="waves-effect waves-light btn">Back</a>
+
 
 
 

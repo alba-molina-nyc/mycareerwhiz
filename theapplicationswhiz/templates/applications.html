@@ -5,24 +5,30 @@
 {% block main %}
 
 {% block title %} {{ user.first_name }} - Your Applications {% endblock %}
+<style>
+  table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 10px;
+
+  }
+/*   
+  tr:nth-child(even) {background-color: rgb(238,109,115);} */
+  </style>
 
 <h1>Applications</h1>
+<hr/>
 <!-- #object list is all the apps -->
 {% for application in object_list %}
 
 
 <table class="highlight">
-    <thead>
-      <tr>
-          <th>Title</th>
-          <th>Company Name</th>
-          <th>Category</th>
-          <th>Edit</th>
-          <th>Delete</th>
-      </tr>
-    </thead>
 
-    <tbody>
       <tr>
         <td> <a href="{% url 'application-detail' application.pk %}"> {{ application.title }}</a> </td>
         <td>{{ application.company_name }} </td>
@@ -30,10 +36,10 @@
         <td> <a href="{% url 'application_delete' application.pk %}">Delete</td>
         <td> <a href="{% url 'application_update' application.pk %}">Update</a></td>
       </tr>
-    </tbody>
+
   </table>
 
-<hr/>
+
 
 
 {% endfor %}
