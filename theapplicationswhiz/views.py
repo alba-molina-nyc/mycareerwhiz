@@ -68,6 +68,10 @@ class AddCategoryView(CreateView):
     fields = '__all__'
     success_url = '/applications/'
 
+class CategoryDetailView(DetailView):
+    model = Category
+    template_name = 'application_detail.html'
+
 
 ######## Note #########  
 
