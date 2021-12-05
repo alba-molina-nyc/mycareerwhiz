@@ -51,7 +51,7 @@ class NoteForm(forms.ModelForm):
 class ContactForm(forms.ModelForm): 
     class Meta: 
         model = Contact
-        fields = ( 'user', 'title', 'name', 'email', 'application' )
+        fields = ( 'user', 'title', 'name', 'email', 'application', 'linkedin_profile' )
         
     widgets = { 
          'user': forms.Select(attrs={'class': 'form-control'}),
@@ -59,4 +59,5 @@ class ContactForm(forms.ModelForm):
          'name': forms.TextInput(attrs={'class': 'form-control'}),
          'email': forms.EmailInput(attrs={'class': 'form-control'}),
          'application': forms.Select(attrs={'class': 'form-control'}),
+         'linkedin_profile': forms.Select(attrs={'class': 'form-control'}),
      }

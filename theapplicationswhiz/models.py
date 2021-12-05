@@ -56,6 +56,7 @@ class Contact(models.Model):
     date_added = models.DateField(auto_now_add=True)
     name = models.CharField(max_length=255)
     title = models.TextField()
+    linkedin_profile = models.TextField(default="null")
     email = models.EmailField()
 
     def __str__(self):
