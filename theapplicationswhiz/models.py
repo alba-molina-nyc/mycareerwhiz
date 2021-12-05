@@ -7,14 +7,14 @@ from django.conf import settings
 
 # Create your models here.
 
-class Category(models.Model): 
-    name = models.CharField(max_length=255)
+# class Category(models.Model): 
+#     name = models.CharField(max_length=255)
 
-    def __str__(self):
-        return self.name 
+#     def __str__(self):
+#         return self.name 
     
-    def get_absolute_url(self):
-        return reverse('application-detail', kwargs={'pk': self.id})
+#     def get_absolute_url(self):
+#         return reverse('application-detail', kwargs={'pk': self.id})
 
 class Application(models.Model):
     title = models.CharField(max_length=255)
@@ -30,7 +30,7 @@ class Application(models.Model):
     submission_status = models.CharField(max_length=255)
     remote = models.CharField(max_length=255)
     next_steps = models.DateField(auto_now_add=True)
-    category = models.CharField(max_length=255, default='uncategorized')
+    # category = models.CharField(max_length=255, default='uncategorized')
   
 
     def __str__(self):
