@@ -51,13 +51,15 @@ class Note(models.Model):
 
 
 class Contact(models.Model): 
+    application = models.ForeignKey(Application, related_name="contacts", on_delete=models.CASCADE, default=1)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
+    date_added = models.DateField(auto_now_add=True)
     name = models.CharField(max_length=255)
     title = models.TextField()
     email = models.EmailField()
 
     def __str__(self):
-        return self.title + ' | ' + str(self.user)
+        return self.title + ' | ' + str(self.user)  + str(self.application)
     
 
     

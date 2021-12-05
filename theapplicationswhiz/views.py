@@ -68,6 +68,7 @@ class AddCategoryView(CreateView):
 
 ######## Note #########  
 
+
 class ContactsView(ListView):
     model = Contact
     template_name = 'contacts.html'
@@ -77,5 +78,9 @@ class AddContactView(CreateView):
     form_class = ContactForm
     template_name = 'add_contact.html'
     success_url = '/contacts/'
+
+class ContactDetailView(DetailView):
+    model = Contact
+    template_name = 'contact_detail.html'
 
 

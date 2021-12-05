@@ -8,11 +8,27 @@
 <hr/>
 
 
+{% for contact in object_list %}
+
+
+<table class="highlight">
+
+      <tr>
+        <td> <a href="{% url 'contact-detail' contact.pk %}"> {{ contact.title }}</a> </td>
+        <td>{{ contact.name}} </td>
+        <td> {{ contact.email }} </td>
+       
+      </tr>
+
+  </table>
 
 
 
 
-
-
+{% endfor %}
 
 {% endblock %}
+
+
+
+

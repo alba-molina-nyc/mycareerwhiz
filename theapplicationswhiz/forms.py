@@ -1,5 +1,6 @@
 from django import forms
 from .models import Application, Note, Category, Contact
+
 # Interview
 
 #hardcodes the choices but not good bc cant make changes easily 
@@ -32,17 +33,6 @@ class ApplicationForm(forms.ModelForm):
     }
 
 
-class ContactForm(forms.ModelForm): 
-    class Meta: 
-        model = Contact
-        fields = ( 'name', 'title', 'email', 'user' )
-        
-        widgets = { 
-         'name': forms.TextInput(attrs={'class': 'form-control'}),
-         'title': forms.TextInput(attrs={'class': 'form-control'}),
-         'email': forms.EmailInput(attrs={'class': 'form-control'}),
-         'user': forms.Select(attrs={'class': 'form-control'}),
-     }
 
 class NoteForm(forms.ModelForm):
     class Meta: 
@@ -58,3 +48,15 @@ class NoteForm(forms.ModelForm):
 
 
 
+class ContactForm(forms.ModelForm): 
+    class Meta: 
+        model = Contact
+        fields = ( 'user', 'title', 'name', 'email', 'application' )
+        
+    widgets = { 
+         'user': forms.Select(attrs={'class': 'form-control'}),
+         'title': forms.TextInput(attrs={'class': 'form-control'}),
+         'name': forms.TextInput(attrs={'class': 'form-control'}),
+         'email': forms.EmailInput(attrs={'class': 'form-control'}),
+         'application': forms.Select(attrs={'class': 'form-control'}),
+     }
