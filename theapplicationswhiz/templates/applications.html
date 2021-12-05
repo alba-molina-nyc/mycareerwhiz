@@ -9,30 +9,33 @@
 <h1>Applications</h1>
 <!-- #object list is all the apps -->
 {% for application in object_list %}
-<ul>
- 
-    <h6>
-        <a href="{% url 'application-detail' application.pk %}"> {{ application.title }}</a> 
-    </h6>
-        
-    <h1>   <b>{{ application.Category}}</b> </h1>
-        
-        <br/>Update Application <a href="{% url 'application_update' application.pk %}">  (here) </a></br>
 
 
-        <br/>Delete Application <a href="{% url 'application_delete' application.pk %}">  (here) </a></br>
+<table class="highlight">
+    <thead>
+      <tr>
+          <th>Title</th>
+          <th>Company Name</th>
+          <th>Category</th>
+          <th>Edit</th>
+          <th>Delete</th>
+      </tr>
+    </thead>
 
-        
-        {{ application.owner.first_name }} {{ application.owner.last_name }} - {{ application.owner.email }} -  </br>
-     
-    </li>
-</ul>
+    <tbody>
+      <tr>
+        <td> <a href="{% url 'application-detail' application.pk %}"> {{ application.title }}</a> </td>
+        <td>{{ application.company_name }} </td>
+        <td> {{ application.category }} </td>
+        <td> <a href="{% url 'application_delete' application.pk %}">Delete</td>
+        <td> <a href="{% url 'application_update' application.pk %}">Update</a></td>
+      </tr>
+    </tbody>
+  </table>
+
 <hr/>
 
 
 {% endfor %}
-
-
-
 
 {% endblock %}
