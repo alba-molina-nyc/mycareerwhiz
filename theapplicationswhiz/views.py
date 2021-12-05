@@ -70,7 +70,7 @@ class AddCategoryView(CreateView):
 
 class CategoryDetailView(DetailView):
     model = Category
-    template_name = 'application_detail.html'
+    template_name = 'categories.html'
 
 
 ######## Note #########  
