@@ -32,6 +32,7 @@
       <tr>
         <td> <a href="{% url 'application-detail' application.pk %}"> {{ application.title }}</a> </td>
         <td>{{ application.company_name }} </td>
+        <td>{{ application.salary }} </td>
         <!-- <td> {{ application.category }} </td> -->
         <td> <a href="{% url 'application_delete' application.pk %}">Delete</td>
         <td> <a href="{% url 'application_update' application.pk %}">Update</a></td>
